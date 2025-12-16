@@ -34,10 +34,11 @@ p {
 .user-card {
   background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  margin: 10px;
+  margin: 20px;
   transition: 0.3s;
   cursor: pointer;
   border-radius: 10px;
+  padding: 20px;
 }
 
 .user-card:hover {

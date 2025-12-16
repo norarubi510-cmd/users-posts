@@ -1,29 +1,19 @@
 const postListEl = document.querySelector{'.post-list'};
+const id = localStorage.getItem("id")
 
 async function onSearchChange(Event) {
     const id = Event.target.value;
-    const posts = await fetch (`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
-    const postsData = await posts.json();
-    postListEl.innerHTML = posts.Data.map(post =>`
-       <div class= "post">
-          <div class= "post_title">
-             ${post.title}
-              </div>
-              <p class = "post_body">
-             ${post.body}
-              </p>
-          </div>
-      `).join("");
+    renderPosts(id);
 }
 
-async function main() {
-    const id = localStorage.getItem("id")
+async function renderPosts(id) {
     const posts = await fetch (`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
     const postsData = await posts.json();
-    console.log(postsData)
+    postListEl.innerHTML = postsData.map(post => postHTML(post) ).join('');
+}
 
-
-postListEl.innerHTML = posts.Data.map(post =>`
+function postHTML(post) {
+   return `
     <div class= "post">
     <div class= "post_title">
         ${post.title}
@@ -32,9 +22,9 @@ postListEl.innerHTML = posts.Data.map(post =>`
         ${post.body}
         </p>
     </div>
-    `).join("");
+    `
 
 }
 
-main();
+renderPosts(id);
 

@@ -1,7 +1,7 @@
-const postListEl = document.querySelector{'.post-list'};
+const postListEl = document.querySelector('.post-list');
 const id = localStorage.getItem("id")
 
-async function onSearchChange(Event) {
+async function onSearchChange(event) {
     const id = Event.target.value;
     renderPosts(id);
 }

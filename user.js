@@ -2,7 +2,7 @@ const postListEl = document.querySelector('.post-list');
 const id = localStorage.getItem("id")
 
 async function onSearchChange(event) {
-    const id = Event.target.value;
+    const id = event.target.value;
     renderPosts(id);
 }
 
